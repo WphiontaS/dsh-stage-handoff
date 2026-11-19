@@ -1,0 +1,83 @@
+{
+  "name": "dsh-stage-handoff",
+  "version": "1.0.0-beta.1",
+  "description": "Stage-handoff anchors for DeepSeek Harness: at a token threshold, remind the agent to close out the stage and write a human-readable anchor, then compact the history while keeping the automatic engine's retention budget instead of discarding the tail.",
+  "icon": "./assets/icon.svg",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "files": [
+    "lib",
+    "assets",
+    "locale",
+    "docs",
+    "!docs/anchors",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh-CN.md",
+    "README.en.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WphiontaS/dsh-stage-handoff.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WphiontaS/dsh-stage-handoff/issues"
+  },
+  "homepage": "https://github.com/WphiontaS/dsh-stage-handoff#readme",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "deepseek",
+    "cordis",
+    "context",
+    "compaction",
+    "context-window",
+    "anchor",
+    "handoff",
+    "agent-memory",
+    "long-running-agents"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "tag": "beta"
+  },
+  "scripts": {
+    "test": "node --test test/index.test.mjs test/usage.test.mjs test/cleanup.test.mjs test/links.test.mjs test/probes.test.mjs test/render.test.mjs test/regressions.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "check": "tsc --noEmit && node --test test/index.test.mjs test/usage.test.mjs test/cleanup.test.mjs test/links.test.mjs test/probes.test.mjs test/render.test.mjs test/regressions.test.mjs",
+    "probe": "pwsh -NoProfile -File tools/Probe.ps1",
+    "pack:release": "npm pack"
+  },
+  "devDependencies": {
+    "@deepseek-ai/schemastery": "~3.19.0",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.7.0"
+  }
+}
