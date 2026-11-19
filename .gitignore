@@ -1,0 +1,30 @@
+# Runtime artifact produced by `npm pack`; release builds attach a tarball instead.
+*.tgz
+dist/
+.pack/
+
+# Dependencies (this plugin has none at runtime, only a typecheck devDependency).
+node_modules/
+
+# Local verification scratch space. The `.tmp*/` form also catches the stray
+# `.tmplast-scan` that a script once created when a backslash in a Windows path
+# was swallowed as an escape — that directory held a full unpacked copy of an
+# old tarball and got committed before anyone noticed.
+.tmp/
+.tmp*/
+*.log
+
+# Stage-handoff anchors are runtime workspace data: they carry absolute host
+# paths and session ids, so they must never be committed or packed.
+docs/anchors/
+
+# Research archive: notes and extracts from external papers. Not part of the
+# published package, and the extracts are third-party text we do not redistribute.
+research/
+
+# Editor and OS noise.
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Stage Handoff",
+    "description": "Stage-handoff anchors for DeepSeek Harness: at a token threshold, remind the agent to close out the stage and write a human-readable anchor, then compact the history while keeping the automatic engine's retention budget instead of discarding the tail."
+  }
+}

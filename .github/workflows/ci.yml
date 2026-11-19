@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    # 仓库实际分支是 master。只写 main 时这份工作流一次都不会触发，
+    # 而"CI 从来没跑过"比"CI 跑红了"更难发现。两个名字都留着，改主分支也不用再动这里。
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: check (${{ matrix.os }}, node ${{ matrix.node }})
+    # Windows 必须进来：本插件大量处理 `D:\` 路径、`path.sep`、CRLF 与临时目录，
+    # 只在 ubuntu 上绿说明不了问题。这两处差异恰好是最容易悄悄坏掉的地方。
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [20, 22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - name: Type check
+        run: npm run typecheck
+      - name: Unit tests
+        run: npm test
+      - name: Package contents
+        run: npm pack --dry-run
