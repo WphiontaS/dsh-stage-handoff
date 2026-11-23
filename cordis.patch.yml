@@ -1,0 +1,16 @@
+# dsh-stage-handoff: stage-handoff reminder on measured context.
+# Inserted by `dsh plugin add` (bundle patch). Defaults live here; override any
+# key in the profile's own cordis.patch.yml with a full replacement block.
+- insert:
+    - id: stage-handoff
+      name: 'dsh-stage-handoff'
+      config:
+        notifyTokens: 363520
+        notifyRepeatDelta: 25000
+        notifyCooldownMs: 300000
+        notifyOnTurnStartOnly: true
+        compactRetainTokens: 32000
+        compactCooldownMs: 60000
+        hostMaxTokens: 256000
+        agentDecidesCompaction: true
+        keepAnchorBackups: 3

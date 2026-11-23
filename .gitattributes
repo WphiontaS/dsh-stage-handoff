@@ -1,0 +1,12 @@
+# Normalize line endings so a Windows checkout and a Linux CI runner agree.
+* text=auto eol=lf
+
+# PowerShell scripts keep CRLF: they are executed by Windows PowerShell 5.1,
+# which is more forgiving on CRLF and is what the release tools run under.
+*.ps1 text eol=crlf
+
+# Binary assets must never be normalized.
+*.png binary
+*.ico binary
+*.svg text eol=lf
+*.tgz binary

@@ -1,0 +1,80 @@
+{
+  "format": 1,
+  "title": {
+    "en": "dsh-stage-handoff",
+    "zh": "dsh-stage-handoff"
+  },
+  "description": {
+    "en": "Stage-handoff anchors for DeepSeek Harness.",
+    "zh": "DeepSeek Harness 的阶段交接锚点。"
+  },
+  "metadata": {
+    "categories": {
+      "context": {
+        "title": {
+          "en": "Context management",
+          "zh": "上下文管理"
+        }
+      }
+    },
+    "labels": {
+      "compaction": {
+        "title": {
+          "en": "Compaction",
+          "zh": "压缩"
+        }
+      }
+    },
+    "sortKeys": {}
+  },
+  "plugins": [
+    {
+      "name": "dsh-stage-handoff",
+      "title": {
+        "en": "Stage handoff",
+        "zh": "阶段交接"
+      },
+      "description": {
+        "en": "Close out the stage before the context is compacted and hand the next stage a file instead of a summary: a token-threshold reminder, a human-readable anchor under docs/anchors/, then the same compaction engine with its own retention budget.",
+        "zh": "在上下文被压缩之前收尾当前阶段，把一份文件而不是一份摘要交给下一阶段：到阈值提醒，在 docs/anchors/ 下写人类可读的锚点，再用同一个压缩引擎按自己的保留预算压实。"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlN0YWdlIEhhbmRvZmYiPgogIDxyZWN0IHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgcng9IjMuNiIgZmlsbD0iIzE2MjMzZiIvPgogIDxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzhhYjRmZiIgc3Ryb2tlLXdpZHRoPSIxLjEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiAgICA8cGF0aCBkPSJNOCAzLjJ2OC42Ii8+CiAgICA8cGF0aCBkPSJNNS42IDUuNGg0LjgiLz4KICAgIDxwYXRoIGQ9Ik0zLjEgOS4xYy41IDIuNSAyLjIgNC4xIDQuOSA0LjFzNC40LTEuNiA0LjktNC4xIi8+CiAgICA8cGF0aCBkPSJNMy4xIDkuMWgyLjFNMTIuOSA5LjFoLTIuMSIvPgogIDwvZz4KPC9zdmc+Cg==",
+      "author": "WphiontaS",
+      "homepage": "https://github.com/WphiontaS/dsh-stage-handoff#readme",
+      "repository": {
+        "url": "https://github.com/WphiontaS/dsh-stage-handoff"
+      },
+      "metadata": {
+        "category": "context",
+        "keywords": [
+          "dsh",
+          "dsh-plugin",
+          "deepseek-harness",
+          "deepseek",
+          "cordis",
+          "context",
+          "compaction",
+          "context-window",
+          "anchor",
+          "handoff",
+          "agent-memory",
+          "long-running-agents"
+        ],
+        "labels": [
+          "compaction"
+        ],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0-beta.1",
+          "publishTimestamp": 1795126680,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {}
+        }
+      ]
+    }
+  ]
+}
